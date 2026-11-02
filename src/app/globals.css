@@ -1,26 +1,195 @@
+
 @import "tailwindcss";
+
+/* =================================
+   SEPTA OFFICIAL BRAND COLOURS
+================================= */
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+
+  --septa-black: #000000;
+  --septa-pearl: #061820;
+  --septa-teal: #6DB1AE;
+  --septa-white: #FFFFFF;
+
+  --septa-light: #F4F9F9;
+  --septa-border: #DCE8E8;
+
+  --font-primary: var(--font-louis-george);
+  --font-secondary: var(--font-open-sans);
 }
+
+/* =================================
+   TAILWIND THEME CONFIGURATION
+================================= */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-septa-black: var(--septa-black);
+  --color-septa-pearl: var(--septa-pearl);
+  --color-septa-teal: var(--septa-teal);
+  --color-septa-white: var(--septa-white);
+  --color-septa-light: var(--septa-light);
+  --color-septa-border: var(--septa-border);
+
+  --font-sans: var(--font-open-sans);
+  --font-heading: var(--font-louis-george);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =================================
+   GLOBAL STYLES
+================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-secondary), Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary), Arial, sans-serif;
+  letter-spacing: -0.035em;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =================================
+   SELECTION & SCROLLBAR
+================================= */
+
+::selection {
+  background: var(--septa-teal);
+  color: var(--septa-pearl);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--septa-pearl);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--septa-teal);
+  border-radius: 20px;
+}
+
+/* =================================
+   REUSABLE SEPTA STYLES
+================================= */
+
+.septa-gradient {
+  background: linear-gradient(
+    135deg,
+    #061820,
+    #102f38,
+    #6DB1AE
+  );
+}
+
+.septa-text-gradient {
+  background: linear-gradient(
+    90deg,
+    #6DB1AE,
+    #ffffff
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.septa-button {
+  background: var(--septa-teal);
+  color: var(--septa-pearl);
+  border-radius: 999px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.septa-button:hover {
+  background: var(--septa-white);
+  transform: translateY(-3px);
+}
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes septa-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-septa {
+  animation: septa-fade-up 0.8s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* @font-face {
+  font-family: "Louis George";
+  src: url("/fonts/LouisGeorgeCafe.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Louis George";
+  src: url("/fonts/LouisGeorgeCafe-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+} */
+
+
