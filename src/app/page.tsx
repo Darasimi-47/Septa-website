@@ -449,7 +449,7 @@ export default function Home() {
         </div>
 
         <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-6 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} SEPTA. All rights reserved.
+         © 2026 SEPTA. All rights reserved.
         </div>
       </footer>
     </main>
